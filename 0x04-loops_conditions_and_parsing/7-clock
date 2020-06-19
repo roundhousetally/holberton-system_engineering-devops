@@ -5,13 +5,16 @@ export j
 i=1
 j=1
 t=1
-while [ $t -lt 13 ]
+while [ $t -lt 14 ]
 do
     while [ $j -lt 60 ]
     do
 	echo "$j"
 	j=$((j+1))
-	if [ $j -eq 60 ]
+	if [ $i -eq 13 ]
+	then
+	    i=$((i+1))
+	elif [ $j -eq 60 ]
 	then
 	    echo "Hour: $i"
 	    i=$((i+1))
