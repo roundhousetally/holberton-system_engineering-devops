@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# prints the string ten times
 export i
 i=0
 while [ $i -lt 10 ]
