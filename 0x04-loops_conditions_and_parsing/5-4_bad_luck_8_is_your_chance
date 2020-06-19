@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# bad luck good luck
 export i
 i=0
 while [ $i -lt 10 ]

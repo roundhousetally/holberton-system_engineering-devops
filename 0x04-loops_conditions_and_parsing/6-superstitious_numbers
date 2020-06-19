@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# its all a numbers game
 export i
 i=0
 while [ $i -lt 21 ]
