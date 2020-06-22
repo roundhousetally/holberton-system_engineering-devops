@@ -4,7 +4,7 @@ export i
 i=0
 echo $$ > /var/run/holbertonscript.pid
 trap "echo I hate the kill command" SIGTERM
-trap "echo Y U no love me?!" SIGINT
+trap "echo Y U no love me?!; exit" SIGINT
 trap "rm /var/run/holbertonscript.pid; exit" SIGQUIT SIGTERM
 while [ $i != 1 ]
 do
