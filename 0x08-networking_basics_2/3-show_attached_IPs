@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# displays all active ipz on the machine
+ifconfig | grep 'inet addr:' | awk '{print $2}' | cut -d ":" -f 2
