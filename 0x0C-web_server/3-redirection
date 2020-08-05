@@ -2,6 +2,7 @@
 # redirects
 sudo apt-get update
 sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
 echo "Holberton School" | sudo tee /var/www/html/index.html
 sed -i '/^\tserver_name.*/a \\trewrite ^\/redirect_me http:\/\/www.visualsatisfaction.com permanent;' /etc/nginx/sites-available/default
 sudo service nginx restart
