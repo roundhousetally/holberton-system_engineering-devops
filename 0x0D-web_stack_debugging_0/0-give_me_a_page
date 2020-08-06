@@ -1,1 +1,4 @@
-service apache2 restart
+#!/usr/bin/env bash
+# installs apache on server
+sudo apt-get install apache2
+sudo service apache2 restart
