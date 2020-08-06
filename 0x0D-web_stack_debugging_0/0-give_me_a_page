@@ -1,3 +1,1 @@
-#!/usr/bin/env bash
-# installs apache on docker container
 service apache2 restart
