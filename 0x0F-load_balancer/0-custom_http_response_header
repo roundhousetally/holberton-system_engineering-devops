@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Installs Nginx listening on port 80
 apt-get update
-apt-get -y install nginx
+install nginx
 sed -i "36a \\\tadd_header X-Served-By $HOSTNAME;\n" /etc/nginx/sites-available/default
-service nginx restart
+sudo service nginx restart
