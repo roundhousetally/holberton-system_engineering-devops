@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Installs Nginx listening on port 80
+
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+echo "Holberton School" | sudo tee /var/www/html/index.html
+sed -i '/^\tserver_name.*/a \\trewrite ^\/redirect_me https:\/\/www.youtube.com\/user\/thisissoawkward permanent;' /etc/nginx/sites-available/default
+
+sudo service nginx restart
