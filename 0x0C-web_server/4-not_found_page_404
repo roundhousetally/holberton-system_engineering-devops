@@ -5,10 +5,10 @@ sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 echo "Holberton School" | sudo tee /var/www/html/index.html
 sed -i '/^\tserver_name.*/a \\trewrite ^\/redirect_me https:\/\/www.youtube.com\/user\/thisissoawkward permanent;' /etc/nginx/sites-available/default
-echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custerr.html
+echo Ceci n\'est pas une page | sudo tee /usr/share/nginx/html/custerr.html
 sed -i '43a \\terror_page 404 /custerr.html;' /etc/nginx/sites-available/default
 sed -i '44a \\tlocation = /custerr.html {' /etc/nginx/sites-available/default
 sed -i '45a \\t\\troot /usr/share/nginx/html;' /etc/nginx/sites-available/default 
-sed -i '46a \\t\\tinternal;' /etc/nginx/sites-available/default 
-sed -i '47a \\t}' /etc/nginx/sites-available/default     
+sed -i '46a \\t\\tinternal;' /etc/nginx/sites-available/default
+sed -i '47a \\t}' /etc/nginx/sites-available/default
 sudo service nginx restart
