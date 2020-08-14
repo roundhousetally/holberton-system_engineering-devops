@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # Installs Nginx listening on port 80
 apt-get update
-install nginx
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo "Holberton School" | sudo tee /var/www/html/index.html
+echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html 
+sed -i '/^\tserver_name.*/a \\trewrite ^\/redirect_me https:\/\/www.youtube.com\/user\/thisissoawkward permanent;' /etc/nginx/sites-available/default
 sed -i "36a \\\tadd_header X-Served-By $HOSTNAME;\n" /etc/nginx/sites-available/default
-sudo service nginx restart
+service nginx restart
