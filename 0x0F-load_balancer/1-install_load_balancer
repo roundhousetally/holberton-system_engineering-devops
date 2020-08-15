@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 # installs a load balancer
-sudo apt-get install software-properties-common
+sudo apt-get -y update
+sudo apt-get -y install software-properties-common
 sudo add-apt-repository ppa:vbernat/haproxy-1.7
 sudo apt-get -y update
-sudo apt-get install haproxy=1.7.\*
+sudo apt-get -y install haproxy=1.7.\*
 sudo echo "ENABLED=1" >> /etc/default/haproxy 
 sudo cat >> /etc/haproxy/haproxy.cfg << EOF
 frontend http_front
         bind *:80
-        mode http
         default_backend http_back
   
 backend http_back
