@@ -9,6 +9,7 @@ sudo cat >> /etc/haproxy/haproxy.cfg << EOF
 frontend http_front
         bind *:80
         mode http
+        default_backend http_back
   
 backend http_back
         balance roundrobin
