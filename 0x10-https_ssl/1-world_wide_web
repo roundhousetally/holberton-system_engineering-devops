@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# displays information about subdomains
+# shellcheck disable=SC2086
+if [ "$#" -eq 1 ]
+then
+	subdms=("www" "lb-01" "web-01" "web-02")
+elif [ "$#" -eq 2 ]
+then
+	subdms=$2
+fi
+for dm in "${subdms[@]}"
+do
+	echo -n "The subdomain $dm"
+	dig "$dm.$1" | grep -A1 "ANSWER SECTION:" | tail -n 1 | awk '{ print " is a "$4 " record and points to " $5}'
+done
