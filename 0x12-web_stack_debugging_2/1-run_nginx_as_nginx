@@ -2,7 +2,10 @@
 # nginx user
 service apache2 stop
 sudo pkill apache2
-sudo chmod 644 /etc/nginx/nginx.conf
-sudo chown nginx:nginx /etc/nginx/nginx.conf
+sudo service nginx stop
+sudo pkill nginx
+sudo chmod -R 777 /etc/nginx/nginx.conf
+sudo chown -R nginx:nginx /etc/nginx/nginx.conf
+sudo sed -i '1a user nginx;' /etc/nginx/nginx.conf
 sudo sed -i 's/80 default_server/8080 default_server/' /etc/nginx/sites-available/default
-sudo -u nginx service nginx start
+sudo -u nginx service nginx restart
