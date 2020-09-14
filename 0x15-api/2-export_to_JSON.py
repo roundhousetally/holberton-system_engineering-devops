@@ -12,11 +12,15 @@ if __name__ == '__main__':
                         .format(e_id)).json()
     utodo = requests.get('https://jsonplaceholder.typicode.com/todos?userId={}'
                          .format(e_id)).json()
-
+    allutasks = []
+    # get all tasks for user first
+    for task in utodo:
+        tdict = {}
+        tdict["task"] = task.get("title")
+        tdict["completed"] = task.get("completed")
+        tdict["username"] = user.get("username")
+        allutasks.append(tdict)
+    jsontsk = {}
+    jsontsk[e_id] = allutasks
     with open('{}.json'.format(e_id), "w", newline="") as jfile:
-        for task in utodo:
-            json.dump({e_id: [{
-                "task": task.get("title"),
-                "completed": task.get("completed"),
-                "username": user.get("username")
-            }]}, jfile)
+        json.dump(jsontsk, jfile)
